@@ -3,11 +3,13 @@ import AppIcon from "../Components/AppIcon.jsx"
 import { APP } from "../data/app.js"
 import Window from "../Components/Window.jsx"
 import Clock from "../Components/Clock.jsx"
+import { Rocket } from "lucide-react"
 
 function WebOSDesktop() {
 
     const [ windows , setWindows ] = useState([])
     const [ minimized , setMinimized ] = useState([])
+    const [ menuOpen , setMenuOpen ] = useState(false)
     const zCounter = useRef(1)
 
     const openApp = (app) => {
@@ -86,8 +88,9 @@ function WebOSDesktop() {
                 <button
                     className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-sm transition-colors"
                     title="Launcher"
+                    onClick={() => setMenuOpen(!menuOpen)}
                 >
-                    ⊞
+                    <Rocket size={18} />
                 </button>
                 <div className="flex gap-2 flex-1 overflow-x-auto">
                     {windows.map((win) => {
@@ -107,6 +110,29 @@ function WebOSDesktop() {
                             </button>
                         )
                     })}
+                    {menuOpen && (
+                        <div className="absolute bottom-14 left-3 w-44 bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl p-2 text-white text-sm">
+                            <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-white/10">
+                                About Chikko OS
+                            </button>
+                            <button
+                                className="w-full text-left px-3 py-2 rounded-lg hover:bg-white/10"
+                                onClick={() => {
+                                    const app = APP.find((a) => a.id === "settings")
+                                    if (app) openApp(app)
+                                    setMenuOpen(false)
+                                }}
+                            >
+                                Settings
+                            </button>
+                            <button
+                                onClick={() => setWindows([])}
+                                className="w-full text-left px-3 py-2 rounded-lg hover:bg-white/10"
+                            >
+                                Close All Windows
+                            </button>
+                        </div>
+                    )}
                 </div>
                 <Clock/>
             </div>

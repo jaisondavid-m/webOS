@@ -1,10 +1,12 @@
 import React from 'react'
 import { BrowserRouter , Routes , Route , Link } from "react-router-dom"
 import WebOSDesktop from '../Pages/WebOSDesktop'
+import CustomCursor from '../Components/CustomCursor'
 
 function App() {
   return (
     <BrowserRouter>
+    <CustomCursor/>
       <Routes>
         <Route path='/' element={ <WebOSDesktop/> } />
       </Routes>
