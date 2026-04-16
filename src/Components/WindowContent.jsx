@@ -4,6 +4,7 @@ import Browser from "./Browser.jsx"
 import Files from "./Files.jsx"
 import Setting from "./Setting.jsx"
 import Notes from "./Notes.jsx"
+import FlappyBird from "./FlappyBird.jsx"
 
 export const WindowContent =  {
     terminal: <Terminal/> ,
@@ -11,4 +12,5 @@ export const WindowContent =  {
     files: <Files/> ,
     settings: <Setting/> ,
     notes: <Notes/> ,
+    flappy: <FlappyBird/>
 }
