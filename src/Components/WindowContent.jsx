@@ -5,6 +5,7 @@ import Files from "./Files.jsx"
 import Setting from "./Setting.jsx"
 import Notes from "./Notes.jsx"
 import FlappyBird from "./FlappyBird.jsx"
+import Calculator from "./Calculator.jsx"  
 
 export const WindowContent =  {
     terminal: <Terminal/> ,
@@ -12,5 +13,6 @@ export const WindowContent =  {
     files: <Files/> ,
     settings: <Setting/> ,
     notes: <Notes/> ,
-    flappy: <FlappyBird/>
+    flappy: <FlappyBird/> ,
+    calculator: <Calculator/>,
 }

@@ -61,6 +61,15 @@ function WebOSDesktop() {
                 fontFamily: "'Inter', sans-serif",
             }}
         >
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+            >
+                <source src="/bg.mp4" type="video/mp4" />
+            </video>
             <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -68,7 +77,7 @@ function WebOSDesktop() {
                     backgroundSize: "40px 40px",
                 }}
             />
-            <div className="absolute top-6 right-6 flex flex-col gap-5">
+            <div className="absolute top-6 left-6 flex flex-col gap-5">
                 {APP.map((app) => (
                     <AppIcon key={app.id} app={app} onClick={() => openApp(app)} />
                 ))}
@@ -94,7 +103,10 @@ function WebOSDesktop() {
                 </button>
                 <div className="flex gap-2 flex-1 overflow-x-auto">
                     {windows.map((win) => {
+
                         const isMin = minimized.includes(win.uid)
+                        const Icon = APP.find((a) => a.id === win.id)?.icon
+
                         return (
                             <button
                                 key={win.uid}
@@ -105,7 +117,7 @@ function WebOSDesktop() {
                                         : "bg-white/15 text-white hover:bg-white/20"
                                 }`}
                             >
-                                <span>{APP.find((a) => a.id === win.id)?.icon}</span>
+                                <span>{Icon && <Icon size={14} />}</span>
                                 <span>{win.label}</span>
                             </button>
                         )
