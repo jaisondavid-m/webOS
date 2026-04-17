@@ -5,7 +5,7 @@ import CustomCursor from '../Components/CustomCursor'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/webOS">
     <CustomCursor/>
       <Routes>
         <Route path='/' element={ <WebOSDesktop/> } />
