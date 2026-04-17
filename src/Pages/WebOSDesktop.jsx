@@ -77,6 +77,9 @@ function WebOSDesktop() {
                     backgroundSize: "40px 40px",
                 }}
             />
+            <div className="absolute top-6 left-1/2 -translate-x-1/2 z-10 pointer-events-none text-center">
+
+            </div>
             <div className="absolute top-6 left-6 flex flex-col gap-5">
                 {APP.map((app) => (
                     <AppIcon key={app.id} app={app} onClick={() => openApp(app)} />

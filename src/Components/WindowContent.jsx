@@ -5,7 +5,8 @@ import Files from "./Files.jsx"
 import Setting from "./Setting.jsx"
 import Notes from "./Notes.jsx"
 import FlappyBird from "./FlappyBird.jsx"
-import Calculator from "./Calculator.jsx"  
+import Calculator from "./Calculator.jsx" 
+import Sudoku from "./Sudoku.jsx" 
 
 export const WindowContent =  {
     terminal: <Terminal/> ,
@@ -15,4 +16,5 @@ export const WindowContent =  {
     notes: <Notes/> ,
     flappy: <FlappyBird/> ,
     calculator: <Calculator/>,
+    sudoku: <Sudoku/>
 }
